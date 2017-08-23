@@ -1,0 +1,7 @@
+<% if @profile.errors.any? %>
+    <script type="text/javascript">
+        <% @profile.errors.full_messages.each do |msg| %>
+        toastr.error('<%= msg %>');
+        <% end %>
+    </script>
+<% end %>

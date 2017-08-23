@@ -1,0 +1,25 @@
+<div class="sidebar-nav">
+  <div class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+        <label style="color: #fff;">他の項目を編集する</label>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse sidebar-navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="<%= 'active' if controller?("profiles") && action?("basics") %>">
+          <%= link_to "基礎情報", manage_profile_basics_path(@profile) %>
+        </li>
+        <li class="<%= 'active' if controller?("profiles") && action?("goals") %>">
+          <%= link_to "目的", manage_profile_goals_path(@profile) %>
+        </li>
+        <li class="<%= 'active' if controller?("profiles") && action?("photos") %>">
+          <%= link_to "写真", manage_profile_photos_path(@profile), data: {"turbolinks" => false}%>
+        </li>
+        <li class="<%= 'active' if controller?("profiles") && action?("goals") %>">
+          <%= link_to "ジム", manage_profile_goals_path(@profile) %>
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>

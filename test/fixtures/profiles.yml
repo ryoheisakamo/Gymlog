@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  height: 1
+  weight: 1
+  age: 1
+  trainer: false
+  experience: 1
+  direction: MyString
+  twitter_id: MyString
+  instagram_id: MyString
+  line_id: MyString
+  website_url: MyString
+  goal_text: MyText
+  competition: MyString
+  comp_date: MyString
+  user: one
+
+two:
+  height: 1
+  weight: 1
+  age: 1
+  trainer: false
+  experience: 1
+  direction: MyString
+  twitter_id: MyString
+  instagram_id: MyString
+  line_id: MyString
+  website_url: MyString
+  goal_text: MyText
+  competition: MyString
+  comp_date: MyString
+  user: two

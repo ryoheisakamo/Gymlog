@@ -1,0 +1,162 @@
+<%= render 'partial/navbar' %>
+<div class="container">
+  <div class="col-md-3">
+    <!-- vertical-navbar -->
+    <%= render 'partial/verticalnavbar'%>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="text-center">
+          <span style="font-size:24px;">詳細プロフィールの編集</span>
+        </div>
+      </div>
+
+      <div class="panel-body">
+        <!-- ここからフォーム -->
+        <%= form_for @profile do |f| %>
+            <%= render "partial/profileErrorMsg" %>
+
+            <div class="row">
+              <div class="col-md-12 select">
+                <label>身長・体重・年齢</label><br>
+              </div>
+              <div class="form-group">
+                <div class="col-md-4">
+                  <div class="input-group width-100">
+                    <%= f.text_field :height, :class => 'form-control', :placeholder => 'Height', autofocus: true, required: true, :prompt => "記入してください" %>
+                    <div class="input-group-addon width-10">cm</div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group width-100">
+                    <%= f.text_field :weight, :class => 'form-control', :placeholder => 'Weight', autofocus: true,required: true, prompt: "記入してください" %>
+                    <div class="input-group-addon width-10">kg</div>
+                  </div>
+                </div>
+                <div class="col-md-4 align-right">
+                  <div class="input-group width-100">
+                    <%= f.text_field :age, :class => 'form-control', :placeholder => 'Age', autofocus: true, required: true, prompt: "記入してください" %>
+                    <div class="input-group-addon width-10">歳</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+
+            <div class="row">
+              <div class="col-md-12 select">
+                <div class="form-group">
+                  <div class="item-left-end">
+                    <label>あなたはトレーナーですか？</label>
+                  </div>
+                  <div class="item-right">
+                    <div class="btn-group" data-toggle="buttons">
+                      <% if @profile.trainer = "true" %>
+                        <label class="btn btn-primary width-50"><%= f.radio_button :trainer, false, :required => true %>いいえ</label>
+                        <label class="btn btn-primary width-50 active"><%= f.radio_button :trainer, true, :required=> true %>はい</label>
+                      <% else %>
+                        <label class="btn btn-primary width-50 active"><%= f.radio_button :trainer, false, :required => true %>いいえ</label>
+                        <label class="btn btn-primary width-50"><%= f.radio_button :trainer, true, :required=> true %>はい</label>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+
+            <div class="row">
+              <div class="col-md-12 select">
+                <div class="form-group">
+                  <label>トレーニング年数</label>
+                  <%= f.select :experience, [["1年",1], ["~3年",2], ["~5年",3], ["~10年",4], ["~20年",5], ["20年以上",6]], {prompt:"選択してください"}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-12 select">
+                <div class="form-group">
+                  <label>トレーニングのタイプ</label>
+                  <%= f.select :direction, [["美容・健康","美容・健康"], ["筋力アップ","筋力アップ"], ["ベストボディ","ベストボディ"], ["フィジーク","フィジーク"], ["ボディビル","ボディビル"], ["ウェイトリフティング","ウエィトリフティング"]], {prompt:"選択してください"}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+                </div>
+              </div>
+            </div>
+
+            <h3>Social Link</h3>
+            <hr>
+
+            <div class="row">
+              <div class="col-md-12 select">
+                <div class="form-group">
+                  <div class="col-md-3">
+                    <h4>
+                      <i class="fa fa-twitter tw-icon" aria-hidden="true"></i>
+                      <label>Twitter</label>
+                    </h4>
+                  </div>
+                  <div class="col-md-9">
+                    <%= f.text_field :twitter_id, :class => 'form-control', :placeholder => 'Twitter ID', autofocus: true  %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-12 select">
+                <div class="form-group">
+                  <div class="col-md-3">
+                    <h4>
+                      <i class="fa fa-instagram is-icon" aria-hidden="true"></i>
+                      <label>Instagram</label>
+                    </h4>
+                  </div>
+                  <div class="col-md-9">
+                    <%= f.text_field :instagram_id, :class => 'form-control', :placeholder => 'Instagram ID', autofocus: true %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-12 select">
+                <div class="form-group">
+                  <div class="col-md-3">
+                    <h4>
+                      <i class="icon-line ln-icon" aria-hidden="true"></i>
+                      <label>LINE</label>
+                    </h4>
+                    </div>
+                  <div class="col-md-9">
+                    <%= f.text_field :line_id, :class => 'form-control', :placeholder => 'Line ID', autofocus: true %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-12 select">
+                <div class="form-group">
+                  <div class="col-md-3">
+                    <h4>
+                      <i class="fa fa-file url-icon" aria-hidden="true"></i>
+                      <label>Website</label>
+                    </h4>
+                  </div>
+                  <div class="col-md-9">
+                    <%= f.text_field :website_url, :class => 'form-control', :placeholder => 'URL', autofocus: true %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+
+            <div class="actions align-right">
+              <%= f.submit "更新", class: "btn btn-danger" %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
